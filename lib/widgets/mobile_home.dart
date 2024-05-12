@@ -1,5 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:web_myself/widgets/hoverhomeButton.dart';
+import 'package:web_myself/widgets/profile_image.dart';
 
 class MobileHome extends StatelessWidget {
   const MobileHome({super.key});
@@ -7,53 +9,104 @@ class MobileHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
-    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: mq.height * .08,
-          ),
-          ClipOval(
-            child: CircleAvatar(
-              backgroundColor: Colors.transparent,
-              radius: mq.height * .08,
-              child: Image.asset(
-                "images/profile.png",
-                height: mq.height * 0.5,
-                width: mq.width * 0.5,
-                fit: BoxFit.fill,
-              ),
+    return Center(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const ProfileAnimation(),
+                SizedBox(
+                  height: mq.height * .1,
+                ),
+                const Text(
+                  "Hi ! i'm Topu Roy",
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+                AnimatedTextKit(
+                  repeatForever: true,
+                  animatedTexts: [
+                    TypewriterAnimatedText('A Flutter Developer',
+                        textStyle:
+                            const TextStyle(fontSize: 30, color: Colors.yellow),
+                        speed: const Duration(milliseconds: 100)),
+                    TypewriterAnimatedText('Software Developer',
+                        textStyle:
+                            const TextStyle(fontSize: 30, color: Colors.yellow),
+                        speed: const Duration(milliseconds: 100)),
+                  ],
+                ),
+                SizedBox(
+                  height: mq.height * .04,
+                ),
+                const Text(
+                  "I'm expert in Flutter Development. I have been working as a Flutter Developer over the last 3 years. if you need any help, you can contact me. Now i can create your Software visible and perfectly.",
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                ),
+                SizedBox(
+                  height: mq.height * .03,
+                ),
+                SizedBox(
+                    width: 280,
+                    height: 60,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(8),
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                          overlayColor: const MaterialStatePropertyAll(
+                              Color.fromARGB(255, 255, 0, 0)),
+                          shadowColor: const MaterialStatePropertyAll(Colors.white),
+                        ),
+                        onPressed: () {},
+                        child: const Text("Get in touch"))),
+                SizedBox(
+                  height: mq.height * .08,
+                ),
+                SizedBox(
+                  width: 280,
+                  child: Column(
+                    children: [
+                      const Text(
+                        "Contact Me",
+                        style: TextStyle(fontSize: 20, color: Colors.white),
+                      ),
+                      SizedBox(
+                        height: mq.height * .02,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          HoverContainer(
+                            icon: const Icon(
+                              Icons.facebook_sharp,
+                            ),
+                          ),
+                          HoverContainer(
+                            icon: const Icon(
+                              Icons.call,
+                            ),
+                          ),
+                          HoverContainer(
+                            icon: const Icon(
+                              Icons.call,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
-          ),
-          SizedBox(
-            height: mq.height * .05,
-          ),
-          const Text(
-            "Hi ! i'm Topu Roy",
-            style: TextStyle(
-                fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          AnimatedTextKit(
-            repeatForever: true,
-            animatedTexts: [
-              TypewriterAnimatedText('A Flutter Developer',
-                  speed: const Duration(milliseconds: 100)),
-              TypewriterAnimatedText(
-                  'Expert of Dart, Flutter,\n Firebase,Api Integration,GetX',
-                  speed: const Duration(milliseconds: 100)),
-            ],
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                  onPressed: () {}, child: const Text("Get in touch")))
-        ],
-      ),
-    ]);
+          ]),
+    );
   }
 }
