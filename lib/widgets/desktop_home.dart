@@ -33,6 +33,7 @@ class DesktopHome extends StatelessWidget {
                   TypewriterAnimatedText(
                       'Expert of Dart, Flutter,\n Firebase,Api Integration,GetX',
                       speed: const Duration(milliseconds: 100)),
+                
                 ],
               ),
               const SizedBox(
@@ -41,7 +42,8 @@ class DesktopHome extends StatelessWidget {
               SizedBox(
                   width: 200,
                   child: ElevatedButton(
-                      onPressed: () {}, child: const Text("Get in touch")))
+                      onPressed: () {}, child: const Text("Get in touch"))),
+              
             ],
           ),
           SizedBox(
@@ -53,8 +55,8 @@ class DesktopHome extends StatelessWidget {
               radius: mq.height * .2,
               child: Image.asset(
                 "images/profile.png",
-                height: mq.height * 0.5,
-                width: mq.width * 0.5,
+                height: mq.height * 0.4,
+                width: mq.width * 0.4,
                 fit: BoxFit.fill,
               ),
             ),

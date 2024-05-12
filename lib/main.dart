@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Portfolio',
       theme: ThemeData.dark(),
-      home: HomePage(),
+      home: ConstrainedBox(constraints: BoxConstraints(minWidth: 200),child: HomePage()),
     );
   }
 }

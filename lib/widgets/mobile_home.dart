@@ -15,6 +15,21 @@ class MobileHome extends StatelessWidget {
           SizedBox(
             height: mq.height * .08,
           ),
+          ClipOval(
+            child: CircleAvatar(
+              backgroundColor: Colors.transparent,
+              radius: mq.height * .08,
+              child: Image.asset(
+                "images/profile.png",
+                height: mq.height * 0.5,
+                width: mq.width * 0.5,
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: mq.height * .05,
+          ),
           const Text(
             "Hi ! i'm Topu Roy",
             style: TextStyle(
@@ -39,21 +54,6 @@ class MobileHome extends StatelessWidget {
                   onPressed: () {}, child: const Text("Get in touch")))
         ],
       ),
-      SizedBox(
-        height: mq.height * .05,
-      ),
-      ClipOval(
-        child: CircleAvatar(
-          backgroundColor: Colors.transparent,
-          radius: mq.height * .08,
-          child: Image.asset(
-            "images/profile.png",
-            height: mq.height * 0.5,
-            width: mq.width * 0.5,
-            fit: BoxFit.fill,
-          ),
-        ),
-      )
     ]);
   }
 }

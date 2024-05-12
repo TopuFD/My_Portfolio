@@ -7,27 +7,28 @@ class MobileDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.transparent,
-      width: 170,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
-        child: Column(
-          children: [
-            // ignore: prefer_const_constructors
-            Align(
-              alignment: Alignment.topLeft,
-              child: IconButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  icon: const Icon(Icons.close)),
-            ),
-            for (var i = 0; i < ButtonList.navButtons.length; i++)
-              ListTile(
-                leading: ButtonList.navIcons[i],
-                title: Text(ButtonList.navButtons[i]),
-              )
-          ],
+    
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 8),
+          child: Column(
+            children: [
+              // ignore: prefer_const_constructors
+              Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    icon: const Icon(Icons.close)),
+              ),
+              for (var i = 0; i < ButtonList.navButtons.length; i++)
+                ListTile(
+                  leading: ButtonList.navIcons[i],
+                  title: Text(ButtonList.navButtons[i]),
+                )
+            ],
+          ),
         ),
       ),
     );

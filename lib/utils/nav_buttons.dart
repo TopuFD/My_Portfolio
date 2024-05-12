@@ -10,9 +10,9 @@ class ButtonList {
   ];
   static List<Icon> navIcons = [
     const Icon(Icons.home,),
-    const Icon(Icons.person),
-    const Icon(Icons.work,),
-    const Icon(Icons.place,),
-    const Icon(Icons.contact_emergency,),
+    const Icon(Icons.handyman),
+    const Icon(Icons.apps,),
+    const Icon(Icons.web,),
+    const Icon(Icons.quick_contacts_mail,),
   ];
 }
