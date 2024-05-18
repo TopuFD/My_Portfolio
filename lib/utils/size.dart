@@ -1,1 +1,1 @@
-final mobileSize = 750.0;
+final mobileSize = 800;
