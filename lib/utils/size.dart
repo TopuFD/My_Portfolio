@@ -1,1 +1,1 @@
-final mobileSize = 800;
+const mobileSize = 800;

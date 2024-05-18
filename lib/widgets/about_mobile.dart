@@ -27,7 +27,7 @@ class _AboutSectionMobileState extends State<AboutSectionMobile> {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return VisibilityDetector(
-      key: Key('about-section-mobile'),
+      key: const Key('about-section-mobile'),
       onVisibilityChanged: _onVisibilityChanged,
       child: Container(
         width: double.maxFinite,
@@ -37,10 +37,10 @@ class _AboutSectionMobileState extends State<AboutSectionMobile> {
           child: Column(
             children: [
               AnimatedOpacity(
-                duration: Duration(seconds: 1),
+                duration: const Duration(seconds: 1),
                 opacity: _opacity,
                 child: AnimatedContainer(
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   curve: Curves.bounceOut,
                   alignment: _alignment,
                   child: Stack(
@@ -79,7 +79,7 @@ class _AboutSectionMobileState extends State<AboutSectionMobile> {
               SizedBox(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * .1),
-                  child: Column(
+                  child: const Column(
                     children: [
                       Text(
                         "About Me",

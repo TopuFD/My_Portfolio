@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-
 
 class AboutSecDesktop extends StatefulWidget {
   const AboutSecDesktop({super.key});
@@ -31,28 +28,27 @@ class _AboutSectionMobileState extends State<AboutSecDesktop> {
     }
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return VisibilityDetector(
-      key: Key('about-section-mobile'),
+      key: const Key('about-section-mobile'),
       onVisibilityChanged: _onVisibilityChanged,
       child: Container(
         width: double.maxFinite,
         color: const Color(0xff00416A),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: size.height * .05),
+          padding: EdgeInsets.symmetric(
+              vertical: size.height * .05, horizontal: size.width * .05),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AnimatedOpacity(
-                duration: Duration(seconds: 1),
+                duration: const Duration(seconds: 1),
                 opacity: _opacity,
                 child: AnimatedContainer(
-                  duration: Duration(seconds: 1),
+                  duration: const Duration(seconds: 1),
                   curve: Curves.bounceOut,
                   alignment: _imgAlignment,
                   child: Stack(
@@ -89,26 +85,29 @@ class _AboutSectionMobileState extends State<AboutSecDesktop> {
                 height: size.height * .05,
               ),
               SizedBox(
-                width: size.width / 2,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: size.width * .1),
-                  child: Column(
-                    children: [
-                      Text(
-                        "About Me",
-                        style: TextStyle(fontSize: 30, color: Colors.yellow),
-                      ),
-                      Text(
-                        "Topu Chandra Roy",
-                        style: TextStyle(fontSize: 30, color: Colors.yellow),
-                      ),
-                      Text(
-                        "I am a dedicated Flutter Developer with 2 years of experience in building dynamic and responsive mobile applications. Passionate about continuous learning and staying updated with the latest advancements in Flutter, I strive to enhance my skills and deliver high-quality software solutions.",
-                        softWrap: true,
-                        textAlign: TextAlign.justify,
-                      )
-                    ],
-                  ),
+                width: size.width * .5,
+                child: const Column(
+                  children: [
+                    Text(
+                      "About Me",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.yellow,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "Topu Chandra Roy",
+                      style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.yellow,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "I am a dedicated Flutter Developer with 2 years of experience in building dynamic and responsive mobile applications. Passionate about continuous learning and staying updated with the latest advancements in Flutter, I strive to enhance my skills and deliver high-quality software solutions.",
+                      softWrap: true,
+                      textAlign: TextAlign.justify,
+                    )
+                  ],
                 ),
               )
             ],

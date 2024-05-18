@@ -1,7 +1,6 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:web_myself/widgets/skill.dart';
+import 'package:web_myself/piechart_skill.dart';
+import 'package:web_myself/widgets/skill_item.dart';
 
 class SkillSectionMobile extends StatefulWidget {
   const SkillSectionMobile({Key? key}) : super(key: key);
@@ -19,8 +18,20 @@ class _SkillSectionMobileState extends State<SkillSectionMobile> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("3+ YEARS OF EXPERIENCE"),
-          const Text("My Skills"),
+          const Text(
+            "My Skills",
+            style: TextStyle(
+                fontSize: 25,
+                color: Colors.yellow,
+                fontWeight: FontWeight.bold),
+          ),
+          const Text(
+            "3+ YEARS OF EXPERIENCE",
+            style: TextStyle(
+                fontSize: 25,
+                color: Colors.yellow,
+                fontWeight: FontWeight.bold),
+          ),
           SizedBox(
             height: size.height * .03,
           ),
@@ -49,11 +60,17 @@ class _SkillSectionMobileState extends State<SkillSectionMobile> {
                     SizedBox(
                       width: 5,
                     ),
-                    SkillContainer("OOP",iconLink: "images/skill_logo/oop.png",),
+                    SkillContainer(
+                      "OOP",
+                      iconLink: "images/skill_logo/oop.png",
+                    ),
                     SizedBox(
                       width: 5,
                     ),
-                    SkillContainer("Api",iconLink: "images/skill_logo/api.png",),
+                    SkillContainer(
+                      "Api",
+                      iconLink: "images/skill_logo/api.png",
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -62,15 +79,24 @@ class _SkillSectionMobileState extends State<SkillSectionMobile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SkillContainer("Firebase",iconLink: "images/skill_logo/firebase.png",),
+                    SkillContainer(
+                      "Firebase",
+                      iconLink: "images/skill_logo/firebase.png",
+                    ),
                     SizedBox(
                       width: 5,
                     ),
-                    SkillContainer("Git",iconLink: "images/skill_logo/git.png",),
+                    SkillContainer(
+                      "Git",
+                      iconLink: "images/skill_logo/git.png",
+                    ),
                     SizedBox(
                       width: 5,
                     ),
-                    SkillContainer("Github",iconLink: "images/skill_logo/github.png",),
+                    SkillContainer(
+                      "Github",
+                      iconLink: "images/skill_logo/github.png",
+                    ),
                   ],
                 ),
                 SizedBox(
@@ -79,20 +105,33 @@ class _SkillSectionMobileState extends State<SkillSectionMobile> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    SkillContainer("Canva",iconLink: "images/skill_logo/canva.png",),
+                    SkillContainer(
+                      "Canva",
+                      iconLink: "images/skill_logo/canva.png",
+                    ),
                     SizedBox(
                       width: 5,
                     ),
-                    SkillContainer("HTML",iconLink: "images/skill_logo/html.png",),
+                    SkillContainer(
+                      "HTML",
+                      iconLink: "images/skill_logo/html.png",
+                    ),
                     SizedBox(
                       width: 5,
                     ),
-                    SkillContainer("CSS",iconLink: "images/skill_logo/css.png",),
+                    SkillContainer(
+                      "CSS",
+                      iconLink: "images/skill_logo/css.png",
+                    ),
                   ],
                 ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: size.height * .1,
+          ),
+          SkillInPieChart(),
         ],
       ),
     );

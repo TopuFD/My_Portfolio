@@ -8,6 +8,7 @@ class SkillContainer extends StatefulWidget {
   const SkillContainer(this.skill, {Key? key, required this.iconLink}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _SkillContainerState createState() => _SkillContainerState();
 }
 
@@ -20,7 +21,7 @@ class _SkillContainerState extends State<SkillContainer> {
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedContainer(
-          duration: Duration(milliseconds: 200),
+          duration: const Duration(milliseconds: 200),
           height: 50,
           width: 120,
           decoration: BoxDecoration(
@@ -28,9 +29,9 @@ class _SkillContainerState extends State<SkillContainer> {
             borderRadius: BorderRadius.circular(15),
             boxShadow: _isHovered
                 ? [
-                    BoxShadow(
-                      color: Colors.white.withOpacity(.8),
-                      blurRadius: 10,
+                    const BoxShadow(
+                      color: Colors.white,
+                      blurRadius: 5,
                       spreadRadius: 2,
                     )
                   ]
@@ -41,7 +42,7 @@ class _SkillContainerState extends State<SkillContainer> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(widget.iconLink,height: 40,width: 40,),
-              SizedBox(width: 5,),
+              const SizedBox(width: 5,),
               Text(
                 widget.skill,
                 style: TextStyle(

@@ -1,3 +1,4 @@
+// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 
@@ -7,6 +8,7 @@ class HoverContainer extends StatefulWidget {
   HoverContainer({super.key, required this.icon});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HoverContainerState createState() => _HoverContainerState();
 }
 
