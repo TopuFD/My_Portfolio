@@ -3,36 +3,42 @@ import 'package:flutter/material.dart';
 import 'package:web_myself/widgets/hoverhomeButton.dart';
 import 'package:web_myself/widgets/profile_image.dart';
 
-class MobileHome extends StatelessWidget {
-  const MobileHome({super.key});
+class DesktopHome extends StatefulWidget {
+  const DesktopHome({super.key});
 
+  @override
+  State<DesktopHome> createState() => _DesktopHomeState();
+}
+
+class _DesktopHomeState extends State<DesktopHome> {
+  bool isHover = false;
   @override
   Widget build(BuildContext context) {
     final mq = MediaQuery.of(context).size;
-    return Center(
-      child: Padding(
-        padding: EdgeInsets.only(
-          left: mq.width * .1,
-          right: mq.width * .1,
-          bottom: mq.width * .1,
-        ),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+    return Padding(
+      padding: EdgeInsets.only(
+        left: mq.width * .1,
+        right: mq.width * .1,
+        bottom: mq.width * .1,
+      ),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: mq.width * .3,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ProfileAnimation(),
                   SizedBox(
-                    height: mq.height * .15,
+                    height: mq.height * .2,
                   ),
                   const Text(
-                    "Hi ! i'm Topu Roy",
+                    "Hi ! i'm Topu",
                     style: TextStyle(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 50,
+                        fontWeight: FontWeight.w800,
                         color: Colors.white),
                   ),
                   AnimatedTextKit(
@@ -53,27 +59,43 @@ class MobileHome extends StatelessWidget {
                   ),
                   const Text(
                     "I'm expert in Flutter Development. I have been working as a Flutter Developer over the last 3 years. if you need any help, you can contact me. Now i can create your Software visible and perfectly.",
+                    textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                   SizedBox(
                     height: mq.height * .03,
                   ),
                   SizedBox(
-                      width: 280,
-                      height: 60,
-                      child: ElevatedButton(
-                          style: ButtonStyle(
-                            elevation: MaterialStateProperty.all(8),
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                            overlayColor: const MaterialStatePropertyAll(
-                                Color.fromARGB(255, 255, 0, 0)),
-                            shadowColor:
-                                const MaterialStatePropertyAll(Colors.white),
-                          ),
-                          onPressed: () {},
-                          child: const Text("Get in touch"))),
+                    height: 60,
+                    width: 280,
+                    child: ElevatedButton(
+                        onHover: (value) {
+                          setState(() {
+                            isHover = value;
+                          });
+                        },
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(10),
+                          backgroundColor:
+                              MaterialStateProperty.all(Color(0xFFFFFFFF)),
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                          overlayColor:
+                              const MaterialStatePropertyAll(Color(0xFFFF0000)),
+                          shadowColor:
+                              const MaterialStatePropertyAll(Color(0xFFFFFFFF)),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Read More",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: isHover
+                                  ? Color(0xFFFFFFFF)
+                                  : Color(0xFF000000)),
+                        )),
+                  ),
                   SizedBox(
                     height: mq.height * .08,
                   ),
@@ -113,8 +135,9 @@ class MobileHome extends StatelessWidget {
                   )
                 ],
               ),
-            ]),
-      ),
+            ),
+            const ProfileAnimation()
+          ]),
     );
   }
 }

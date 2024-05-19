@@ -1,3 +1,4 @@
+import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -12,6 +13,7 @@ class AboutSectionMobile extends StatefulWidget {
 class _AboutSectionMobileState extends State<AboutSectionMobile> {
   Alignment _alignment = Alignment.centerLeft;
   double _opacity = 0.0;
+  bool isHover = false;
 
   void _onVisibilityChanged(VisibilityInfo info) {
     if (info.visibleFraction > 0 && _opacity == 0.0) {
@@ -20,7 +22,7 @@ class _AboutSectionMobileState extends State<AboutSectionMobile> {
         _alignment = Alignment.center;
         _opacity = 1.0;
       });
-    } 
+    }
   }
 
   @override
@@ -79,21 +81,48 @@ class _AboutSectionMobileState extends State<AboutSectionMobile> {
               SizedBox(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: size.width * .1),
-                  child: const Column(
+                  child: Column(
                     children: [
-                      Text(
+                      const Text(
                         "About Me",
                         style: TextStyle(fontSize: 30, color: Colors.yellow),
                       ),
-                      Text(
+                      const Text(
                         "Topu Chandra Roy",
                         style: TextStyle(fontSize: 30, color: Colors.yellow),
                       ),
-                      Text(
-                        "I am a dedicated Flutter Developer with 2 years of experience in building dynamic and responsive mobile applications. Passionate about continuous learning and staying updated with the latest advancements in Flutter, I strive to enhance my skills and deliver high-quality software solutions.",
+                      const Text(
+                        "I am a dedicated Flutter Developer with 2 years of experience in building dynamic and responsive mobile applications. Passionate about continuous learning and staying updated with the latest advancements in Flutter, I strive to enhance my skills and deliver high-quality software solutions.I am a dedicated Flutter Developer with 2 years of experience in building dynamic and responsive mobile applications. Passionate about continuous learning and staying updated with the latest advancements in Flutter, I strive to enhance my skills and deliver high-quality software solutions.I am a dedicated Flutter Developer with 2 years of experience in building dynamic and responsive mobile applications. Passionate about continuous learning and staying updated with the latest advancements in Flutter, I strive to enhance my skills and deliver high-quality software solutions.I am a dedicated Flutter Developer with 2 years of experience in building dynamic and responsive mobile applications. Passionate about continuous learning and staying updated with the latest advancements in Flutter, I strive to enhance my skills and deliver high-quality software solutions.",
                         softWrap: true,
                         textAlign: TextAlign.justify,
-                      )
+                      ),
+                      SizedBox(
+                        height: size.height * .05,
+                      ),
+                      SizedBox(
+                        height: 60,
+                        width: 280,
+                        child: ElevatedButton(
+                            onHover: (value) {
+                              setState(() {
+                                isHover = value;
+                              });
+                            },
+                            style: ButtonStyle(
+                              elevation: MaterialStateProperty.all(10),
+                              backgroundColor: MaterialStateProperty.all(Colors.white),
+                              shape: MaterialStateProperty.all(
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10))),
+                              overlayColor: const MaterialStatePropertyAll(
+                                  Color(0xFFFF0000)),
+                                  
+                              shadowColor:
+                                  const MaterialStatePropertyAll(Color(0xFFFFFFFF)),
+                            ),
+                            onPressed: () {},
+                            child: Text("Read More",style: TextStyle(fontSize: 20,color: isHover ?Color(0xFFFFFFFF):Color(0xFF000000)),)),
+                      ),
                     ],
                   ),
                 ),

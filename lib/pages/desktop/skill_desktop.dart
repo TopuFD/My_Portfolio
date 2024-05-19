@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:web_myself/piechart_skill.dart';
+import 'package:web_myself/widgets/piechart_skill.dart';
 import 'package:web_myself/widgets/skill_item.dart';
 
 class SkillSectionDesktop extends StatelessWidget {
