@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:web_myself/widgets/elevatedbutton.dart';
 import 'package:web_myself/widgets/hoverhomeButton.dart';
 import 'package:web_myself/widgets/profile_image.dart';
 
@@ -20,7 +21,7 @@ class _MobileHomeState extends State<MobileHome> {
         padding: EdgeInsets.only(
           left: mq.width * .1,
           right: mq.width * .1,
-          bottom: mq.width * .1,
+          bottom: mq.height * .1,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -61,37 +62,7 @@ class _MobileHomeState extends State<MobileHome> {
             SizedBox(
               height: mq.height * .03,
             ),
-            SizedBox(
-              height: 60,
-              width: 280,
-              child: ElevatedButton(
-                  onHover: (value) {
-                    setState(() {
-                      isHover = value;
-                    });
-                  },
-                  style: ButtonStyle(
-                    elevation: MaterialStateProperty.all(10),
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.white),
-                    shape: MaterialStateProperty.all(
-                        RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10))),
-                    overlayColor:
-                        const MaterialStatePropertyAll(Color(0xFFFF0000)),
-                    shadowColor:
-                        const MaterialStatePropertyAll(Color(0xFFFFFFFF)),
-                  ),
-                  onPressed: () {},
-                  child: Text(
-                    "Read More",
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: isHover
-                            ? Color(0xFFFFFFFF)
-                            : Color(0xFF000000)),
-                  )),
-            ),
+            CustomElevatedButton(text: "Read More", onTap: (){}),
             SizedBox(
               height: mq.height * .08,
             ),

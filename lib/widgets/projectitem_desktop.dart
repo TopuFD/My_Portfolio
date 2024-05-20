@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:web_myself/widgets/elevatedbutton.dart';
 
 class DesktopProjectItem extends StatefulWidget {
   final String imageUrl;
   final String hoverText;
+  final String projectTitle;
+  final String projectDece;
+  final VoidCallback? ontap;
 
-  DesktopProjectItem({required this.imageUrl, required this.hoverText});
+  const DesktopProjectItem(
+      {super.key, required this.imageUrl,
+      required this.hoverText,
+      required this.projectTitle,
+      required this.projectDece,
+      this.ontap});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HoverImageState createState() => _HoverImageState();
 }
 
 class _HoverImageState extends State<DesktopProjectItem> {
   double _opacity = 0.0;
+  bool isHover = false;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +31,7 @@ class _HoverImageState extends State<DesktopProjectItem> {
       onEnter: (_) => setState(() => _opacity = 1.0),
       onExit: (_) => setState(() => _opacity = 0.0),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8,vertical:  8),
+        padding: EdgeInsets.symmetric(vertical: size.height * .025),
         child: Stack(
           children: [
             ClipRRect(
@@ -29,7 +40,7 @@ class _HoverImageState extends State<DesktopProjectItem> {
                 widget.imageUrl,
                 width: size.width * .28,
                 height: size.height * .4,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
             Positioned.fill(
@@ -37,16 +48,30 @@ class _HoverImageState extends State<DesktopProjectItem> {
                 borderRadius: BorderRadius.circular(15),
                 child: AnimatedOpacity(
                   opacity: _opacity,
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   child: Container(
-                    color: Colors.black.withOpacity(0.7),
-                    child: Center(
-                      child: Text(
-                        widget.hoverText,
-                        style: TextStyle(color: Colors.white, fontSize: 24),
-                      ),
-                    ),
-                  ),
+                      color: Colors.black.withOpacity(0.7),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: size.width * .05),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(widget.projectTitle,style: const TextStyle(fontSize: 25,color: Colors.yellow,),),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              
+                              widget.projectDece,style: const TextStyle(fontSize: 16,color: Colors.white,),
+                              textAlign: TextAlign.justify,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            CustomElevatedButton(text: "See Code", onTap: widget.ontap)
+                          ],
+                        ),
+                      )),
                 ),
               ),
             ),

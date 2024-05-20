@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:web_myself/widgets/elevatedbutton.dart';
 
 class HoverImage extends StatefulWidget {
   final String imageUrl;
   final String hoverText;
+  final String projectTitle;
+  final String projectDece;
+  final VoidCallback? ontap;
 
-  HoverImage({required this.imageUrl, required this.hoverText});
+  const HoverImage(
+      {super.key, required this.imageUrl,
+      required this.hoverText,
+      required this.projectTitle,
+      required this.projectDece,
+      this.ontap});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HoverImageState createState() => _HoverImageState();
 }
 
 class _HoverImageState extends State<HoverImage> {
   double _opacity = 0.0;
+  bool isHover = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +38,9 @@ class _HoverImageState extends State<HoverImage> {
               borderRadius: BorderRadius.circular(15),
               child: Image.network(
                 widget.imageUrl,
-                width: size.width * .8,
-                height: size.height * .3,
-                fit: BoxFit.cover,
+                width: 400,
+                height: 200,
+                fit: BoxFit.fill,
               ),
             ),
             Positioned.fill(
@@ -37,16 +48,39 @@ class _HoverImageState extends State<HoverImage> {
                 borderRadius: BorderRadius.circular(15),
                 child: AnimatedOpacity(
                   opacity: _opacity,
-                  duration: Duration(milliseconds: 300),
+                  duration: const Duration(milliseconds: 300),
                   child: Container(
-                    color: Colors.black.withOpacity(0.7),
-                    child: Center(
-                      child: Text(
-                        widget.hoverText,
-                        style: TextStyle(color: Colors.white, fontSize: 24),
-                      ),
-                    ),
-                  ),
+                      color: Colors.black.withOpacity(0.7),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: size.width * .05),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              widget.projectTitle,
+                              style: const TextStyle(
+                                fontSize: 25,
+                                color: Colors.yellow,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              widget.projectDece,
+                              style: const TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                              ),
+                              textAlign: TextAlign.justify,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            CustomElevatedButton(text: "See Code", onTap: widget.ontap)
+                          ],
+                        ),
+                      )),
                 ),
               ),
             ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:web_myself/pages/desktop/contactme_desktop.dart';
+import 'package:web_myself/pages/mobile/contactme_mobile.dart';
 import 'package:web_myself/utils/size.dart';
 import 'package:web_myself/pages/desktop/about_desktop.dart';
 import 'package:web_myself/pages/mobile/about_mobile.dart';
@@ -60,6 +62,12 @@ class HomePage extends StatelessWidget {
                 constraints.maxWidth > mobileSize
                     ? const ProjectFofDesktop()
                     : const ProjectForMobile(),
+
+
+                // Contact Section====================>
+                constraints.maxWidth > mobileSize
+                    ? ContactForDesktop()
+                    :  const ContactScreenMobile(),
 
                 
               ],

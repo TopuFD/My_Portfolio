@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class ButtonList {
   static List<String> navButtons = [
     "home",
+    "About Me",
     "Skills",
     "Projects",
-    "Blog",
     "Contacts",
   ];
   static List<Icon> navIcons = [

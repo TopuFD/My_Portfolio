@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import 'package:web_myself/widgets/elevatedbutton.dart';
 
 class AboutSecDesktop extends StatefulWidget {
   const AboutSecDesktop({super.key});
@@ -40,7 +41,7 @@ class _AboutSectionMobileState extends State<AboutSecDesktop> {
         color: const Color(0xff00416A),
         child: Padding(
           padding: EdgeInsets.symmetric(
-              vertical: size.height * .05, horizontal: size.width * .05),
+              vertical: size.height * .1, horizontal: size.width * .05),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -114,37 +115,7 @@ class _AboutSectionMobileState extends State<AboutSecDesktop> {
                     SizedBox(
                       height: size.height * .05,
                     ),
-                    SizedBox(
-                      height: 60,
-                      width: 280,
-                      child: ElevatedButton(
-                          onHover: (value) {
-                            setState(() {
-                              isHover = value;
-                            });
-                          },
-                          style: ButtonStyle(
-                            elevation: MaterialStateProperty.all(10),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.white),
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10))),
-                            overlayColor: const MaterialStatePropertyAll(
-                                Color(0xFFFF0000)),
-                            shadowColor: const MaterialStatePropertyAll(
-                                Color(0xFFFFFFFF)),
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            "Read More",
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: isHover
-                                    ? Color(0xFFFFFFFF)
-                                    : Color(0xFF000000)),
-                          )),
-                    ),
+                    CustomElevatedButton(text: "Read More", onTap: (){})
                   ],
                 ),
               )
